@@ -1,0 +1,4 @@
+[core]
+    remote = anna802698
+['remote "anna802698"']
+    url = ../git@github.com:anna802698/Program2.git
