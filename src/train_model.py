@@ -1,6 +1,6 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-from preprocess import preprocess_data
+from preprocess1 import preprocess_data
 
 def train_model():
 
