@@ -1,12 +1,19 @@
+import os
+from pathlib import Path
+
 import pandas as pd
-import io
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 def preprocess_data():
     
     # Load dataset
-    data = pd.read_csv("C:/Users/Dell/Desktop/MLOps Lab programs/Program2/src/data/Irisdataset.csv")
+    dataset_path = (
+        Path(os.environ["IRIS_DATA_PATH"])
+        if "IRIS_DATA_PATH" in os.environ
+        else Path(__file__).resolve().parent / "data" / "Irisdataset.csv"
+    )
+    data = pd.read_csv(dataset_path)
     # Create DataFrame
     df = pd.DataFrame(data)
 

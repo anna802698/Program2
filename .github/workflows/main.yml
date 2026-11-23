@@ -11,6 +11,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    - name: Stage Iris dataset
+      run: |
+        mkdir -p data
+        cp src/data/Irisdataset.csv data/irisdataset.csv
+
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
@@ -21,5 +26,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run ML Training Script
+      env:
+        IRIS_DATA_PATH: data/irisdataset.csv
       run: |
         python src/train_model.py
